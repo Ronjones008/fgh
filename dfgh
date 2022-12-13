@@ -1,0 +1,66 @@
+public void validateDes(FacesContext context, UIComponent comp,
+	    Object value) {
+
+	    System.out.println("inside validate method");
+
+	    String mno = (String) value;
+	    String pattern = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\s]).{8,}";
+	    boolean result = mno.matches(pattern);
+	    if (result == false) {
+	        ((UIInput) comp).setValid(false);
+
+	        FacesMessage message = new FacesMessage(
+	            "invalid Description");
+	        context.addMessage(comp.getClientId(context), message);
+	    }
+	}
+	public void validateSpe(FacesContext context, UIComponent comp,
+	    Object value) {
+
+	    System.out.println("inside validate method");
+
+	    String mno = (String) value;
+	    String pattern = "(?=.*[a-z])(?=.*[A-Z]).{3,}";
+	    boolean result = mno.matches(pattern);
+	    if (result == false) {
+	        ((UIInput) comp).setValid(false);
+
+	        FacesMessage message = new FacesMessage(
+	            "invalid Specialization");
+	        context.addMessage(comp.getClientId(context), message);
+	    }
+	}
+	
+	 public void validateUserName(FacesContext context, UIComponent comp,
+	   Object value) {
+
+	   System.out.println("inside validate method");
+
+	   String mno = (String) value;
+	   String pattern = "(?=.*[a-z])(?=.*[0-9]).{8,}";
+	   boolean result = mno.matches(pattern);
+	   if (result == false) {
+	     ((UIInput) comp).setValid(false);
+
+	     FacesMessage message = new FacesMessage(
+	       "invalid UserName");
+	     context.addMessage(comp.getClientId(context), message);
+	   }
+	 }
+
+	 public void validatePassword(FacesContext context, UIComponent comp,
+	   Object value) {
+
+	   System.out.println("inside validate method");
+
+	   String mno = (String) value;
+	   String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+	   boolean result = mno.matches(pattern);
+	   if (result == false) {
+	     ((UIInput) comp).setValid(false);
+
+	     FacesMessage message = new FacesMessage(
+	       "invalid Password");
+	     context.addMessage(comp.getClientId(context), message);
+	   }
+	 }
